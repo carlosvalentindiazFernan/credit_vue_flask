@@ -10,9 +10,11 @@ class Environment(object):
 
 
 
+
 class DevelopEnvironment(Environment):
     """ Environment Develop configuration class. """
     DEBUG = True
+
 
 
 class ProductionEnvironment(Environment):
