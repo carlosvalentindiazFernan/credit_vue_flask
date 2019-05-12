@@ -1,4 +1,4 @@
-from flask.views import View
+from flask.views import MethodView
 from flask import (
     Blueprint,
     make_response,
@@ -7,14 +7,17 @@ from flask import (
 )
 
 
-class CreditView(View):
+class CreditView(MethodView):
     """ Credit View Classs """
 
-    def get(self, request, *args, **kwargs):
+    def get(self, *args, **kwargs):
         """ Get all credits """
-        return make_response(jsonify({
-            'demo': 'asmo'
-        })), 200
+        return make_response(
+            jsonify( 
+                { 'wowo': ')' } 
+            ),
+            200
+        )
 
 
 credit_view = CreditView.as_view('credit_view')

@@ -10,6 +10,9 @@ flask = "*"
 flask-script = "*"
 flask-api = "*"
 sqlalchemy = "*"
+flask-cors = "*"
+jwt = "*"
+flask-sqlalchemy = "*"
 
 [requires]
-python_version = "3.5.2"
+python_version = "3.6.7"

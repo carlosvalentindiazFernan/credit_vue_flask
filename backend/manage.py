@@ -6,7 +6,7 @@ import os
 
 manager = Manager(
     settings(
-        os.getenv('ENVIRONMENT')
+        os.getenv('FLASK_ENV')
     )
 )
 

@@ -3,10 +3,9 @@
 """
 
 from .view import credit_view
-from . import credit_blueprint
+from .routes import credit_blueprint
 
-
-credit_blueprint.add_url_rule(
-    '/',
-    view_func=credit_view,
-    methods=['GET'])
+def register_credit_api(app):
+    app.add_url_rule(
+        '/credits/',
+        view_func=credit_view)
