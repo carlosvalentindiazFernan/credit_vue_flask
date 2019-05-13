@@ -26,6 +26,13 @@ $ vagrant up
 ```
 
 
+```shell
+
+$ docker run --name data-credit -e POSTGRES_PASSWORD=mysecretpassword -e \ POSTGRES_USER=psqlm -e POSTGRES_DB=creditDB -d postgres
+
+```
+
+
 ## Built With
 
 * [Flask](http://flask.pocoo.org/)

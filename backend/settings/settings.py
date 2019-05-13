@@ -3,9 +3,10 @@ from flask_api import FlaskAPI
 from flask.views import MethodView
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_migrate import Migrate
+from flask_bcrypt import Bcrypt
 
 from .config import app_config
-from apps import settings_apps
 from apps.credit.urls import register_credit_api
 from apps.accounts.urls import register_account_api
 from apps.common.view import (
@@ -14,13 +15,27 @@ from apps.common.view import (
     not_allowed,
     server_error
 )
+from apps import db
 
-demo ="de"
 
 def settings(config_name):
     """ Create the app config """
 
-    app =settings_apps(app_config[config_name])
+    app = FlaskAPI(__name__, 
+        instance_relative_config=True
+    )
+
+    app.config.from_object(app_config[config_name])
+
+    """
+        Settings database 
+    """
+    
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
+
+    bcrypt = Bcrypt(app)
+
 
     """
         Settings cors
@@ -40,5 +55,8 @@ def settings(config_name):
     app.register_error_handler(500, server_error)
     app.register_error_handler(405, not_allowed)
 
-    return app
+    return (
+        app,
+        db
+    )
 

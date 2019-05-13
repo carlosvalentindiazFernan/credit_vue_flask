@@ -11,8 +11,12 @@ flask-script = "*"
 flask-api = "*"
 sqlalchemy = "*"
 flask-cors = "*"
-jwt = "*"
 flask-sqlalchemy = "*"
+flask-migrate = "*"
+bcrypt = "*"
+flask-bcrypt = "*"
+pip = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.6.7"
