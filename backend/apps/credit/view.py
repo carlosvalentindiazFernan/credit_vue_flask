@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from .mixing import MixinAuthorization
 from flask import (
     Blueprint,
     make_response,
@@ -7,10 +8,11 @@ from flask import (
 )
 
 
-class CreditView(MethodView):
+class CreditView(MethodView,MixinAuthorization):
     """ Credit View Classs """
 
     def get(self, *args, **kwargs):
+        print(self.is_Authorization(request))
         """ Get all credits """
         return make_response(
             jsonify( 
