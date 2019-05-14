@@ -33,7 +33,7 @@
       </md-app-drawer>
 
       <md-app-content>
-        <Login></Login>
+        <Login v-on:event="onLogin"></Login>
       </md-app-content>
     </md-app>
   </div>
@@ -61,9 +61,16 @@ export default {
   },
   data: () => ({
     menuVisible: false,
-    isLogin: false
+    isLogin: false,
+    auth: ""
   }),
   methods: {
+    onLogin (e) {
+      this.isLogin = e.isLogin
+      if(e.isLogin){
+        this.auth = e.token
+      }
+    },
     createCredit () {
       console.log('create credit')
     },
