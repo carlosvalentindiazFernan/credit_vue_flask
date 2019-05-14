@@ -17,7 +17,7 @@ class UserAPI(MethodView):
         user = User.query.filter_by(
             email=request.data['email']
         ).first()
-
+        print(user)
         if user:               
             auth_token = user.encode_auth_token(user.id)        
             if auth_token:
