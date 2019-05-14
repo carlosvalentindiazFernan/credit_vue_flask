@@ -1,4 +1,5 @@
 from apps import db
+import datetime
 
 class Credit(db.Model):
     """ Credit Model for storing credit related details """

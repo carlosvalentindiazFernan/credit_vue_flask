@@ -17,14 +17,17 @@ class UserAPI(MethodView):
         user = User.query.filter_by(
             email=request.data['email']
         ).first()
-                
-        auth_token = user.encode_auth_token(user.id)        
-        if auth_token:
-            responseObject = {
-                'Token': auth_token.decode()
-            }
-            return make_response(jsonify(responseObject)), 200
- 
+
+        if user:               
+            auth_token = user.encode_auth_token(user.id)        
+            if auth_token:
+                responseObject = {
+                    'Token': auth_token.decode()
+                }
+                return make_response(jsonify(responseObject)), 200
+
+        return make_response(jsonify({'error': 'invalid user' })), 400
+        
  
 
 user_view = UserAPI.as_view('users')
