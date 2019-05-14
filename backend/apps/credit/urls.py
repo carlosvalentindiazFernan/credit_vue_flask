@@ -7,5 +7,5 @@ from .routes import credit_blueprint
 
 def register_credit_api(app):
     app.add_url_rule(
-        '/credits/',
+        '/api/v1/credits/',
         view_func=credit_view)

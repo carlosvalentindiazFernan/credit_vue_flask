@@ -59,7 +59,7 @@ export default {
   methods: {
     eventLogin () {
 
-      axios.post('http://127.0.0.1:5000/login/', this.auth)
+      axios.post('http://127.0.0.1:5000/api/v1/login/', this.auth)
       .then((response) => {
         let value = {
           isLogin: true,
