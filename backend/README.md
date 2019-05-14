@@ -35,6 +35,15 @@ $ pip install -r requirements.txt
 
 ```
 
+### Create User for login
+
+
+```shell
+
+(virtualenv)$ python manage.py createsuperuser
+
+```
+
 ### (Working pip and pipenv )
 
 
@@ -44,6 +53,14 @@ $ pipenv run python manage.py runserver
 
 ```
 
+### Create User for login
+
+
+```shell
+
+$ pipenv run python manage.py createsuperuser
+
+```
 
 ## Run with postgres
 
