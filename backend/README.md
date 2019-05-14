@@ -7,24 +7,47 @@
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes
 
 
-### Installing
+## Installing
 
+### (Working pip and virtualenv )
+
+Define  Env
+
+```shell
+
+$ set FLASK_ENV=development
+$ set DATABASE_URL=sqlite:///example.sqlite
+$ set FLASK_APP=manage
+$ set SECRET=l^s5%rqakgof#b7(ba-p)-sb5@whu-v7++l(3*9qjt$d#*w1)k
+
+```
 
 
 ```shell
 
-$pip install -r requirements.txt
+$ pip install -r requirements.txt
 
 ```
-
-And run
 
 ```shell
 
-$ vagrant up
+(virtualenv)$ python manage.py runserver
 
 ```
 
+### (Working pip and pipenv )
+
+
+```shell
+
+$ pipenv run python manage.py runserver
+
+```
+
+
+## Run with postgres
+
+This project run sqlite but you can work with psql only run container psql and change env (DATABASE_URL)
 
 ```shell
 
