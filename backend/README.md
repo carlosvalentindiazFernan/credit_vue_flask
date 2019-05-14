@@ -15,10 +15,10 @@ Define  Env
 
 ```shell
 
-$ set FLASK_ENV=development
-$ set DATABASE_URL=sqlite:///example.sqlite
-$ set FLASK_APP=manage
-$ set SECRET=l^s5%rqakgof#b7(ba-p)-sb5@whu-v7++l(3*9qjt$d#*w1)k
+$ export FLASK_ENV=development
+$ export DATABASE_URL=sqlite:///example.sqlite
+$ export FLASK_APP=manage
+$ export SECRET=l^s5%rqakgof#b7(ba-p)-sb5@whu-v7++l(3*9qjt$d#*w1)k
 
 ```
 
