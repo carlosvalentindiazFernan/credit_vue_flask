@@ -28,7 +28,7 @@ $ vagrant up
 
 ```shell
 
-$ docker run --name data-credit -e POSTGRES_PASSWORD=mysecretpassword -e \ POSTGRES_USER=psqlm -e POSTGRES_DB=creditDB -d postgres
+$ docker run --name data-credit -e POSTGRES_PASSWORD=mysecretpassword -e  POSTGRES_DB=creditDB -d -p 5432:5432 postgres
 
 ```
 

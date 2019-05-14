@@ -7,6 +7,7 @@ import os
 
 
 app,db = settings(os.getenv('FLASK_ENV'))
+
 manager = Manager(app)
 
 migrate = Migrate(app, db)
@@ -22,6 +23,7 @@ def createsuperuser():
         Create an user for the app 
     """
     "This function create a super user for the app"
+
 
 
     print("Email")

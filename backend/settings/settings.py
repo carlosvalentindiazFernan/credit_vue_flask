@@ -15,15 +15,12 @@ from apps.common.view import (
     not_allowed,
     server_error
 )
-from apps import db
+from apps import db ,app
 
 
 def settings(config_name):
     """ Create the app config """
 
-    app = FlaskAPI(__name__, 
-        instance_relative_config=True
-    )
 
     app.config.from_object(app_config[config_name])
 
@@ -33,8 +30,6 @@ def settings(config_name):
     
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
-
-    bcrypt = Bcrypt(app)
 
 
     """
