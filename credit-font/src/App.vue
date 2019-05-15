@@ -62,12 +62,12 @@ export default {
   data: () => ({
     menuVisible: false,
     isLogin: false,
-    auth: ""
+    auth: null
   }),
   methods: {
     onLogin (e) {
       this.isLogin = e.isLogin
-      if(e.isLogin){
+      if (e.isLogin) {
         this.auth = e.token
       }
     },

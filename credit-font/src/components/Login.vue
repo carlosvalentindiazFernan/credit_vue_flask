@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   name: 'Login',
@@ -58,27 +58,23 @@ export default {
   },
   methods: {
     eventLogin () {
-
       axios.post('http://127.0.0.1:5000/api/v1/login/', this.auth)
-      .then((response) => {
-        let value = {
-          isLogin: true,
-          token: response.data
-        }
-        this.msg = 'Welcome to Your Vue.js App'
-        this.$emit('event', value)
-      })
-      .catch((error) =>{
-        this.msg = error
-        let value = {
-          isLogin: false,
-          token: ''
-        }
-        this.$emit('event', value)
-      });
-
-
-
+        .then((response) => {
+          let value = {
+            isLogin: true,
+            token: response.data
+          }
+          this.msg = 'Welcome to Your Vue.js App'
+          this.$emit('event', value)
+        })
+        .catch((error) => {
+          this.msg = error
+          let value = {
+            isLogin: false,
+            token: ''
+          }
+          this.$emit('event', value)
+        })
     }
   }
 }

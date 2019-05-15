@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import Login from '@/components/Login'
 import Credit from '@/components/Credit'
-import List from '@/components/Lists'
-
+import Lists from '@/components/Lists'
 
 Vue.use(Router)
 
@@ -16,14 +14,14 @@ export default new Router({
       component: Login
     },
     {
-      path: '/create',
-      name: 'create',
-      component: Credit      
+      path: '/credit',
+      name: 'credit',
+      component: Credit
     },
     {
-      path: '/list',
-      name: 'list',
-      component: Lists              
+      path: '/lists',
+      name: 'lists',
+      component: Lists
     }
 
   ]
