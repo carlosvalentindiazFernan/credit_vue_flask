@@ -9,16 +9,17 @@ import axios from 'axios';
 let service =(()=>{
 
     const URLAPI = "http://127.0.0.1:5000/api/v1/";
-    let auth_token = ""
+    let auth_token = "33"
+    let storage = window.localStorage;
 
-    let getToken = (data)=>{
-        if (isvalidStatus(data.status)){
-            auth_token = data.data
-            return auth_token
-        }else{
-            auth_token = ""
-            return auth_token
-        }
+
+    let setToken = (data)=>{
+        storage.setItem('token', data.Token);
+    }
+
+
+    let getToken = ()=>{
+        return storage.getItem('token')   
     }
 
     let isvalidStatus = (status) =>{
@@ -27,6 +28,8 @@ let service =(()=>{
 
     return{
         getToken,
+        setToken,
+        auth_token,
         isvalidStatus,
         URLAPI
     };
