@@ -29,12 +29,15 @@ def settings(config_name):
     """
     
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+
     db.init_app(app)
 
 
     """
         Settings cors
     """
+    
     CORS(app)
     
     """
@@ -55,3 +58,4 @@ def settings(config_name):
         db
     )
 
+    

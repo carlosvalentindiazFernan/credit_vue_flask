@@ -9,39 +9,26 @@ import axios from 'axios';
 let service =(()=>{
 
     const URLAPI = "http://127.0.0.1:5000/api/v1/";
+    let auth_token = ""
 
-   
-    /**
-     * Returns a list of service
-     *
-     * @function
-     * @param {string} moduleIds List of dom-module id's within which to
-     * search for css.
-     * @return {!Array<!HTMLStyleElement>} Array of contained <style> elements
-     * @this {StyleGather}
-     */
-
-    let postListElements = (url,data,auto='')=>{
-        console.log(`${URLAPI}${url}`)
-        console.log(data)
-        axios.post(`${URLAPI}${url}`, data)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+    let getToken = (data)=>{
+        if (isvalidStatus(data.status)){
+            auth_token = data.data
+            return auth_token
+        }else{
+            auth_token = ""
+            return auth_token
+        }
     }
 
-    let getListElements = (url,auto='')=>{
-        console.log("get")
+    let isvalidStatus = (status) =>{
+        return (status == 200)? true : false
     }
-    
 
     return{
-        URLAPI,
-        getListElements,
-        postListElements
+        getToken,
+        isvalidStatus,
+        URLAPI
     };
 
 })();

@@ -24,8 +24,6 @@ def createsuperuser():
     """
     "This function create a super user for the app"
 
-
-
     print("Email")
     email = input()
     print("Password")
@@ -43,6 +41,7 @@ def createsuperuser():
     db.session.commit()    
 
     print("User created")
+
 
 if __name__ == '__main__':
     manager.run()
