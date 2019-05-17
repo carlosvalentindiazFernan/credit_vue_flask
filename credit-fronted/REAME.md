@@ -14,3 +14,7 @@ $ npm run dev
 $ npm run build
 
 ```
+
+## Home page 
+
+### localhost:<port>>/index.html
