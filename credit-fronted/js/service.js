@@ -23,10 +23,15 @@ let service =(()=>{
     }
 
     let isvalidStatus = (status) =>{
-        return (status == 200)? true : false
+        return (status === 200)? true : false
+    }
+
+    let isCreated = (status) => {
+        return (status === 201)? true: false
     }
 
     return{
+        isCreated,
         getToken,
         setToken,
         auth_token,

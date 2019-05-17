@@ -22,8 +22,6 @@ import service from './js/service.js'
 
     if (btn) {
         btn.addEventListener('click', (e) => {
-            console.log(service.URLAPI)
-
             axios.post(`${service.URLAPI}login/`, {
                 'email': email.value,
                 'password': password.value
@@ -44,7 +42,6 @@ import service from './js/service.js'
     }
 
     if (listCredit) {
-        console.log(service.getToken())
         axios
             .get(`${service.URLAPI}credits/`, {
                 headers: {
@@ -59,24 +56,29 @@ import service from './js/service.js'
             });
     }
 
-    if (formCreate) {
-        let credit = {
-            'nameCompany': companyInput.value,
-            'numberCompany': companyNumberInput.value,
-            'credit': creditInput.value,
-            headers: {
-                Authorization: service.getToken()
-            }
-        }
-        
+    if (formCreate) {        
         btnSubtmitCreate.addEventListener('click', (e) => {
-            console.log(credit)
+            let data = {
+                'nameCompany': companyInput.value,
+                'numberCompany': companyNumberInput.value,
+                'credit': creditInput.value,
+            }
+
+            let headerConfig = {
+                headers: {
+                    Authorization: service.getToken()
+                }    
+            }
+    
             axios
-                .post(`${service.URLAPI}credits/`, credit)
+                .post(`${service.URLAPI}credits/`, data,headerConfig)
                 .then(response => {
-                    console.log('Data: ', response.data);
+                    if(service.isCreated(response.status)){
+                        window.location.href = '/menu.html'                        
+                    }
                 })
                 .catch(error => {
+                    alert(error)
                     console.error('An error occurred:', error);
                 });
 
