@@ -14,7 +14,7 @@ class Credit(db.Model):
 
     def __init__(self, name, numCompany,credit):
         """Initialize the user with an email and a password."""
-        self.name = name
+        self.name_company = name
         self.num_company = numCompany
         self.credit = credit
         self.registered_on = datetime.datetime.now()

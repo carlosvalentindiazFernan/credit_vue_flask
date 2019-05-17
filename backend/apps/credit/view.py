@@ -20,8 +20,13 @@ class CreditView(MethodView,MixinAuthorization):
             credits = Credit.query.all()
 
             return make_response(
-                jsonify( 
-                    credits
+                jsonify({
+                    "data": [{
+                        "id": x.id,
+                        "nameCompany": x.name_company, 
+                        "numCompany": x.num_company,
+                        "credit": x.credit
+                        } for x in credits]}
                 ),
                 200
             )            
