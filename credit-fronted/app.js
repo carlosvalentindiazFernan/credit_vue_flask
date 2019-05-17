@@ -49,7 +49,18 @@ import service from './js/service.js'
                 }
             })
             .then(response => {
-                console.log('Data: ', response.data);
+                const {data:{data}} = response
+                if(data.length > 0){
+                    data.forEach(element =>{
+                        let li = document.createElement('li');
+                        li.setAttribute('class','list-group-item');
+                        listCredit.appendChild(li);
+                        li.textContent= `Id ${element.id} 
+                        Company ${element.nameCompany} - ${element.numCompany}  
+                        Credit $${element.credit}`;
+                    })
+                }
+
             })
             .catch(error => {
                 console.error('An error occurred:', error);

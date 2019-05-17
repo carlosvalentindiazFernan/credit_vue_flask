@@ -26,7 +26,7 @@ class CreditView(MethodView,MixinAuthorization):
                         "nameCompany": x.name_company, 
                         "numCompany": x.num_company,
                         "credit": x.credit
-                        } for x in credits]}
+                    } for x in credits]}
                 ),
                 200
             )            
