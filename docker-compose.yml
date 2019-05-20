@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+    web:
+      env_file:
+        - web-variables.env      
+      restart: always  
+      build: ./backend
+      container_name: webdockerando01
+      command: python manage.py runserver         
+      volumes:
+        - web_data:/backend        
+      ports:
+        - "5000"
+      
+volumes:
+    web_data:
